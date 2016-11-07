@@ -25,7 +25,7 @@ if ($text == 'はい') {
     "template" => [
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "○○レストラン",
+      "title" => "××レストラン",
       "text" => "お探しのレストランはこれですね",
       "actions" => [
           [
