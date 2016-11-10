@@ -12,7 +12,7 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-$sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"type"};
+$sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 $sourceGroupID = $jsonObj->{"events"}[0]->{"source"}->{"groupId"};
 $sourceRoomID = $jsonObj->{"events"}[0]->{"source"}->{"roomId"};
 //
@@ -174,7 +174,7 @@ $post_data = [
 	"replyToken" => $replyToken,
 	"messages" => [$response_format_text]
 	];
-
+if ($type=='user'){
 $ch = curl_init("https://api.line.me/v2/bot/message/reply");
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
@@ -193,6 +193,7 @@ $post_data_admin = [
 		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID
 	],]
 ];
+}
 
 $ch_admin = curl_init();
 curl_setopt($ch_admin,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
@@ -215,16 +216,16 @@ $post_data_admin = [
 		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID
 	],]
 ];
-$ch_admin = curl_init();
-curl_setopt($ch_admin,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
-curl_setopt($ch_admin, CURLOPT_POST, true);
-curl_setopt($ch_admin, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch_admin, CURLOPT_RETURNTRANSFER, true);
+$ch_admin2 = curl_init();
+curl_setopt($ch_admin2,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
+curl_setopt($ch_admin2, CURLOPT_POST, true);
+curl_setopt($ch_admin2, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch_admin2, CURLOPT_RETURNTRANSFER, true);
 //curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('to'=>'U1caf201451c3425c1fd1576ad7ab8c48','messages'=>[['type'=>'text','text'=>'hello world'],])));
-curl_setopt($ch_admin, CURLOPT_POSTFIELDS, json_encode($post_data_admin));
-  curl_setopt($ch_admin, CURLOPT_HTTPHEADER, array(
+curl_setopt($ch_admin2, CURLOPT_POSTFIELDS, json_encode($post_data_admin));
+  curl_setopt($ch_admin2, CURLOPT_HTTPHEADER, array(
     "Content-Type: application/json; charser=UTF-8",
     "Authorization: Bearer N48DY/N89s/hQfZZTy0hnx4HSEC1yvpfJubFiQfLWcgk+M56cMNgUHz/c4RdqipD986zTvXWYBFU3wdCHauRRkRdmlOB1auzWe0sz9PGMWDGMGJ1ah0ApLAipNyACy5EwAIiWZt6pU/Yxk6h8HhVpAdB04t89/1O/w1cDnyilFU="
     ));
-$result2 = curl_exec($ch_admin);
-curl_close($ch_admin); 
+$result3 = curl_exec($ch_admin2);
+curl_close($ch_admin2); 
