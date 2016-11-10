@@ -184,3 +184,24 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     ));
 $result = curl_exec($ch);
 curl_close($ch);
+$post_data_admin = [
+	'to' => 'U1caf201451c3425c1fd1576ad7ab8c48',
+	'messages' => [[
+		'type'=>'text',
+		'text' => 'こ2んにちわ 何かご用ですか？ \n\n Name:' . $sourceUserName . '\n UserID:' . $sourceUserID
+	],]
+];
+
+$ch_admin = curl_init();
+curl_setopt($ch_admin,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
+curl_setopt($ch_admin, CURLOPT_POST, true);
+curl_setopt($ch_admin, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch_admin, CURLOPT_RETURNTRANSFER, true);
+//curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('to'=>'U1caf201451c3425c1fd1576ad7ab8c48','messages'=>[['type'=>'text','text'=>'hello world'],])));
+curl_setopt($ch_admin, CURLOPT_POSTFIELDS, json_encode($post_data_admin));
+  curl_setopt($ch_admin, CURLOPT_HTTPHEADER, array(
+    "Content-Type: application/json; charser=UTF-8",
+    "Authorization: Bearer N48DY/N89s/hQfZZTy0hnx4HSEC1yvpfJubFiQfLWcgk+M56cMNgUHz/c4RdqipD986zTvXWYBFU3wdCHauRRkRdmlOB1auzWe0sz9PGMWDGMGJ1ah0ApLAipNyACy5EwAIiWZt6pU/Yxk6h8HhVpAdB04t89/1O/w1cDnyilFU="
+    ));
+$result2 = curl_exec($ch_admin);
+curl_close($ch_admin); 
