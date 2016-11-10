@@ -13,6 +13,21 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 $sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
+//
+
+$chUser = curl_init("https://api.line.me/v2/bot/profile/".$sourceUserID);
+//curl_setopt($chUser, CURLOPT_URL, true);
+//curl_setopt($chUser, CURLOPT_CUSTOMREQUEST, 'GET');
+//curl_setopt($chUser, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chUser, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json; charser=UTF-8',
+    'Authorization: Bearer ' . $accessToken
+    ));
+$resultUser = curl_exec($chUser);
+curl_close($chUser);
+
+$jsonObj2 = json_decode($resultUser);
+$sourceUserName = $jsonObj2 ->{"displayName"};
 
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
@@ -134,7 +149,7 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）\n" . $sourceUserID,
+    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\n Name:" . $sourceUserName,
     "template" => [
         "type" => "confirm",
         "text" => "こんにちわ 何かご用ですか？" . $sourceUserID,
