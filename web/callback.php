@@ -166,37 +166,37 @@ if ($text == 'はい') {
         ]
     ]
   ];
-   $response_format_text1 = [
-    {
-            "type":"text",
-            "text":"Hello, world1"
-        },
-        {
-            "type":"text",
-            "text":"Hello, world2"
-        }
-    ]
-  ]; 
-	$post_data2 = [
-		"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
-	"messages" => [{
-            "type":"text",
-            "text":"Hello, world2"
-        }]
-	];
-
-	$ch1 = curl_init("https://api.line.me/v2/bot/message/push");
-	curl_setopt($ch1, CURLOPT_POST, true);
-	curl_setopt($ch1, CURLOPT_CUSTOMREQUEST, 'POST');
-	curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($post_data2));
-	curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
-	'Content-Type: application/json; charser=UTF-8',
-	'Authorization: Bearer ' . $accessToken
-	));
-	$result = curl_exec($ch1);
-	curl_close($ch1);
-	
+ //  $response_format_text1 = [
+  //  {
+  //          "type":"text",
+  //          "text":"Hello, world1"
+  //      },
+  //      {
+  //          "type":"text",
+  //          "text":"Hello, world2"
+  //      }
+  //  ]
+  //]; 
+//	$post_data2 = [
+//		"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
+//	"messages" => [{
+//            "type":"text",
+//            "text":"Hello, world2"
+//       }]
+//	];
+//
+//	$ch1 = curl_init("https://api.line.me/v2/bot/message/push");
+//	curl_setopt($ch1, CURLOPT_POST, true);
+//	curl_setopt($ch1, CURLOPT_CUSTOMREQUEST, 'POST');
+//	curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+//	curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($post_data2));
+//	curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
+//	'Content-Type: application/json; charser=UTF-8',
+//	'Authorization: Bearer ' . $accessToken
+//	));
+//	$result = curl_exec($ch1);
+//	curl_close($ch1);
+//	
 	
 	
 } else {
