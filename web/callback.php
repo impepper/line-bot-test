@@ -149,7 +149,7 @@ if ($text == 'はい') {
     "altText" => "こ1んにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\n Name:" . $sourceUserName,
     "template" => [
         "type" => "confirm",
-        "text" => "こ2んにちわ 何かご用ですか？" . $sourceUserID. "\n\n Name:" . $sourceUserName,
+        "text" => "こ2んにちわ 何かご用ですか？ \n\n" . $sourceUserID. "\n\n Name:" . $sourceUserName,
         "actions" => [
             [
               "type" => "message",
