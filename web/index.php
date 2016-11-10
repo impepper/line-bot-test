@@ -28,15 +28,16 @@ echo $sourceUserName;
 $post_data = [
 	"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
 	"messages" => [{
-            "type":"text",
-            "text":"Hello, world1"
-        },
-        {
-            "type":"text",
-            "text":"Hello, world2"
-        }]
-	];
-$ch = curl_init("https://api.line.me/v2/bot/message/push");
+		"type":"text",
+		"text":"Hello, world1"
+	},
+	{
+		"type":"text",
+		"text":"Hello, world2"
+	}]
+];
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
