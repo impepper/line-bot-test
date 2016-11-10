@@ -13,6 +13,8 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 $sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
+$sourceGroupID = $jsonObj->{"events"}[0]->{"source"}->{"groupId"};
+$sourceRoomID = $jsonObj->{"events"}[0]->{"source"}->{"roomId"};
 //
 
 $chUser = curl_init("https://api.line.me/v2/bot/profile/".$sourceUserID);
@@ -148,7 +150,7 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こ1んにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\n Name:" . $sourceUserName,
+    "altText" => "こ1んにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\nName: " . $sourceUserName ."\n\nGroup: " . $sourcegroupID . "\n\nRoom: " . $sourceroomID,
     "template" => [
         "type" => "confirm",
         "text" => "こ2んにちわ 何かご用ですか？ \n\n Name:" . $sourceUserName . "\n UserID:" . $sourceUserID,
