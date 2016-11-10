@@ -147,14 +147,23 @@ if ($text == 'はい') {
   ];
 } else if ($text == 'pepper') {
   $response_format_text = [
-    {
-            "type":"text",
-            "text":"Hello, world1"
-        },
-        {
-            "type":"text",
-            "text":"Hello, world2"
-        }
+    "type" => "template",
+    "altText" => "こ1んにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\n Name:" . $sourceUserName,
+    "template" => [
+        "type" => "confirm",
+        "text" => "こ2んにちわ 何かご用ですか？ \n\n Name:" . $sourceUserName . "\n UserID:" . $sourceUserID,
+        "actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+              "text" => "はい"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "いいえ"
+            ]
+        ]
     ]
   ];
    $response_format_text1 = [
@@ -168,16 +177,19 @@ if ($text == 'はい') {
         }
     ]
   ]; 
-	$post_data = [
+	$post_data2 = [
 		"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
-	"messages" => [$response_format_text1]
+	"messages" => [{
+            "type":"text",
+            "text":"Hello, world2"
+        }]
 	];
 
 	$ch1 = curl_init("https://api.line.me/v2/bot/message/push");
 	curl_setopt($ch1, CURLOPT_POST, true);
 	curl_setopt($ch1, CURLOPT_CUSTOMREQUEST, 'POST');
 	curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($post_data));
+	curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($post_data2));
 	curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
 	'Content-Type: application/json; charser=UTF-8',
 	'Authorization: Bearer ' . $accessToken
