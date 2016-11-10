@@ -28,8 +28,8 @@ echo $sourceUserName;
 $post_data = [
 	'to' => 'U1caf201451c3425c1fd1576ad7ab8c48',
 	'messages' => [[
-		'type':'text',
-		'text':'Hello, world1'
+		'type'=>text',
+		'text'=>'Hello, world1'
 	],]
 ];
 $ch = curl_init();
