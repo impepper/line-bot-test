@@ -12,8 +12,8 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-$sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
-$sourceGroupID = $jsonObj->{"events"}[0]->{"source"}->{"type"};
+$sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"type"};
+$sourceGroupID = $jsonObj->{"events"}[0]->{"source"}->{"groupId"};
 $sourceRoomID = $jsonObj->{"events"}[0]->{"source"}->{"roomId"};
 //
 
@@ -150,10 +150,10 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こ1んにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\nName: " . $sourceUserName ."\n\nGroup: " . $sourcegroupID . "\n\nRoom: " . $sourceroomID,
+    "altText" => "こ1んにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\nName: " . $sourceUserName ."\n\nGroup: " . $sourceGroupID . "\n\nRoom: " . $sourceRoomID,
     "template" => [
         "type" => "confirm",
-        "text" => "こ2んにちわ 何かご用ですか？ \n\n Name:" . $sourceUserName . "\n UserID:" . $sourceUserID . "\n\nGroup: " . $sourcegroupID . "\n\nRoom: " . $sourceroomID,
+        "text" => "こ2んにちわ 何かご用ですか？ \n\n Name:" . $sourceUserName . "\n UserID:" . $sourceUserID . "\n\nGroup: " . $sourceGroupID . "\n\nRoom: " . $sourceRoomID,
         "actions" => [
             [
               "type" => "message",
