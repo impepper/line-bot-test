@@ -13,7 +13,7 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 $sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
-$sourceGroupID = $jsonObj->{"events"}[0]->{"source"}->{"groupId"};
+$sourceGroupID = $jsonObj->{"events"}[0]->{"source"}->{"type"};
 $sourceRoomID = $jsonObj->{"events"}[0]->{"source"}->{"roomId"};
 //
 
