@@ -193,7 +193,7 @@ $post_data_admin = [
 		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID
 	],]
 ];
-}
+};
 
 $ch_admin = curl_init();
 curl_setopt($ch_admin,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
