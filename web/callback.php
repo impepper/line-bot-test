@@ -12,7 +12,7 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-$sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userid"};
+$sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
@@ -134,10 +134,10 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）" . $sourceUserID,
+    "altText" => "こ2んにちわ 何かご用ですか？（はい／いいえ）" . $sourceUserID,
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちわ 何かご用ですか？" . $sourceUserID,
+        "text" => "こ3んにちわ 何かご用ですか？" . $sourceUserID,
         "actions" => [
             [
               "type" => "message",
