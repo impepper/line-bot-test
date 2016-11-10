@@ -176,25 +176,26 @@ $post_data = [
 	"messages" => [$response_format_text]
 	];
 if ($sourceType=='user'){
-$ch = curl_init("https://api.line.me/v2/bot/message/reply");
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json; charser=UTF-8',
-    'Authorization: Bearer ' . $accessToken
-    ));
-$result = curl_exec($ch);
-curl_close($ch);
+	$ch = curl_init("https://api.line.me/v2/bot/message/reply");
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+	    'Content-Type: application/json; charser=UTF-8',
+	    'Authorization: Bearer ' . $accessToken
+	    ));
+	$result = curl_exec($ch);
+	curl_close($ch);
+};
 $post_data_admin = [
 	"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
 	"messages" => [[
 		"type"=>"text",
-		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID
+		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID . "\n\nGroup: " . $sourceGroupID . "\n\nRoom: " . $sourceRoomID
 	],]
 ];
-};
+
 
 $ch_admin = curl_init();
 curl_setopt($ch_admin,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
@@ -214,7 +215,7 @@ $post_data_admin2 = [
 	"to" => "R405f9942f35065ddecf78f900ea7a70c",
 	"messages" => [[
 		"type"=>"text",
-		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID
+		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID . "\n\nGroup: " . $sourceGroupID . "\n\nRoom: " . $sourceRoomID
 	],]
 ];
 $ch_admin2 = curl_init();
