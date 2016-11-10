@@ -42,8 +42,8 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json; charser=UTF-8',
-    'Authorization: Bearer ' . $accessToken
+    "Content-Type: application/json; charser=UTF-8",
+    "Authorization: Bearer N48DY/N89s/hQfZZTy0hnx4HSEC1yvpfJubFiQfLWcgk+M56cMNgUHz/c4RdqipD986zTvXWYBFU3wdCHauRRkRdmlOB1auzWe0sz9PGMWDGMGJ1ah0ApLAipNyACy5EwAIiWZt6pU/Yxk6h8HhVpAdB04t89/1O/w1cDnyilFU="
     ));
 $result2 = curl_exec($ch);
 curl_close($ch);  
