@@ -19,6 +19,7 @@ $chUser = curl_init("https://api.line.me/v2/bot/profile/".$sourceUserID);
 curl_setopt($chUser, CURLOPT_HTTPHEADER, 
 	    'Authorization: Bearer ' . $accessToken
     );
+curl_setopt($chUser, CURLOPT_RETURNTRANSFER, true);
 $resultUser = curl_exec($chUser);
 curl_close($chUser);
 
@@ -145,7 +146,7 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\n Name:" . $sourceUserName,
+    "altText" => "こ1んにちわ 何かご用ですか？（はい／いいえ）\n\n" . $sourceUserID . "\n\n Name:" . $sourceUserName,
     "template" => [
         "type" => "confirm",
         "text" => "こんにちわ 何かご用ですか？" . $sourceUserID,
