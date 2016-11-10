@@ -188,7 +188,7 @@ $post_data_admin = [
 	"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
 	"messages" => [[
 		"type"=>"text",
-		"text" => "こ2んにちわ 何かご用ですか？ \n\n Name:" . $sourceUserName . "\n UserID:" . $sourceUserID
+		"text" => "訊息：\n" . $text. "\n\nName:" . $sourceUserName . "\nUserID:" . $sourceUserID
 	],]
 ];
 
