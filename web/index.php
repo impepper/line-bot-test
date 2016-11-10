@@ -35,8 +35,8 @@ curl_close($chUser);
 
 $jsonObj2 = json_decode($resultUser);
 $sourceUserName = $jsonObj2 ->{"displayName"};
-echo $resultUser
-  echo $sourceUserName
+echo $resultUser;
+  echo $sourceUserName;
 ?>
 </body>
 </html>
