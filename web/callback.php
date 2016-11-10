@@ -12,6 +12,8 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
+$sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userid"};
+
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
 	exit;
@@ -135,7 +137,7 @@ if ($text == 'はい') {
     "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちわ 何かご用ですか？",
+        "text" => "こんにちわ 何かご用ですか？".$sourceUserID,
         "actions" => [
             [
               "type" => "message",
