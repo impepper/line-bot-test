@@ -16,13 +16,9 @@ $sourceUserID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 //
 
 $chUser = curl_init("https://api.line.me/v2/bot/profile/".$sourceUserID);
-//curl_setopt($chUser, CURLOPT_URL, true);
-//curl_setopt($chUser, CURLOPT_CUSTOMREQUEST, 'GET');
-//curl_setopt($chUser, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chUser, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json; charser=UTF-8',
-    'Authorization: Bearer ' . $accessToken
-    ));
+curl_setopt($chUser, CURLOPT_HTTPHEADER, 
+	    'Authorization: Bearer ' . $accessToken
+    );
 $resultUser = curl_exec($chUser);
 curl_close($chUser);
 
