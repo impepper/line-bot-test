@@ -25,17 +25,17 @@ $sourceUserName = $jsonObj2 ->{"displayName"};
 echo "/n Result- "$resultUser."/n";
 echo $sourceUserName;
   
-$post_data = [
-	"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
-	"messages" => [{
-		"type":"text",
-		"text":"Hello, world1"
-	},
-	{
-		"type":"text",
-		"text":"Hello, world2"
-	}]
-];
+//$post_data = [
+//	"to" => "U1caf201451c3425c1fd1576ad7ab8c48",
+//	"messages" => [{
+//		"type":"text",
+//		"text":"Hello, world1"
+//	},
+//	{
+//		"type":"text",
+//		"text":"Hello, world2"
+//	}]
+//];
 //$ch = curl_init();
 //curl_setopt($ch,CURLOPT_URL,"https://api.line.me/v2/bot/message/push");
 //curl_setopt($ch, CURLOPT_POST, true);
